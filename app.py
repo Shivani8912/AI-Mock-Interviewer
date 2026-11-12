@@ -4,14 +4,31 @@ Built with Streamlit.
 Author: Shivani PR (github.com/Shivani8912)
 """
 
+import os
+import sys
+
+# Ensure Streamlit does not prompt for credentials or telemetry in VS Code
+os.environ.setdefault("STREAMLIT_BROWSER_GATHER_USAGE_STATS", "false")
+credentials_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".streamlit", "credentials.toml")
+os.environ.setdefault("STREAMLIT_CREDENTIALS_FILE_PATH", credentials_path)
+
 import time
 import streamlit as st
+
+# Automatically launch Streamlit if run directly (e.g. from VS Code Play button)
+if not st.runtime.exists():
+    from streamlit.web import cli as stcli
+    sys.argv = ["streamlit", "run", sys.argv[0]]
+    sys.exit(stcli.main())
+
+
 import streamlit.components.v1 as components
 
 from utils.resume_parser import parse_resume
 from utils.ai_client import AIClient, get_ai_client
 from utils.interview_engine import InterviewEngine
 from utils.audio_utils import get_speech_html
+
 
 # Page configuration
 st.set_page_config(

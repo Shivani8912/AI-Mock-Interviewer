@@ -15,11 +15,11 @@ ENV/
 .secrets/
 
 # IDE & Editor folders
-.vscode/
 .idea/
 *.swp
 *.swo
 .DS_Store
+
 
 # Streamlit local credentials / cache
 .streamlit/secrets.toml
