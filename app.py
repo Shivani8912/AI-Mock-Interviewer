@@ -17,9 +17,19 @@ import streamlit as st
 
 # Automatically launch Streamlit if run directly (e.g. from VS Code Play button)
 if not st.runtime.exists():
+    print("\n" + "=" * 60)
+    print("🎤  AI MOCK INTERVIEWER")
+    print("=" * 60)
+    print("🚀 Launching Streamlit web application...")
+    print("📍 Local URL: http://localhost:8501")
+    print("💡 Your browser should open automatically.")
+    print("   If it does not, click or copy: http://localhost:8501")
+    print("=" * 60 + "\n")
+
     from streamlit.web import cli as stcli
-    sys.argv = ["streamlit", "run", sys.argv[0]]
+    sys.argv = ["streamlit", "run", sys.argv[0], "--server.headless=false", "--server.port=8501"]
     sys.exit(stcli.main())
+
 
 
 import streamlit.components.v1 as components

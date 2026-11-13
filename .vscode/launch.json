@@ -2,15 +2,25 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run AI Mock Interviewer",
+            "name": "Run AI Mock Interviewer (Streamlit)",
             "type": "debugpy",
             "request": "launch",
             "module": "streamlit",
             "args": [
                 "run",
-                "${workspaceFolder}/app.py"
+                "${workspaceFolder}/app.py",
+                "--server.headless=false",
+                "--server.port=8501"
             ],
             "jinja": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Run via run.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run.py",
+            "console": "integratedTerminal",
             "justMyCode": true
         }
     ]

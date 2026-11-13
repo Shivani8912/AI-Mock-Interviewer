@@ -2,9 +2,8 @@
 gatherUsageStats = false
 
 [server]
-headless = true
-enableCORS = false
-enableXsrfProtection = true
+headless = false
+port = 8501
 
 [theme]
 primaryColor = "#4F46E5"
